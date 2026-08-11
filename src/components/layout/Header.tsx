@@ -74,14 +74,6 @@ export function Header() {
         </nav>
 
         <div className="ml-auto flex items-center gap-2 lg:ml-4">
-          {/* Click-to-call, desktop. On mobile this lives in the sticky bar. */}
-          <a
-            href={`tel:${site.contact.phone}`}
-            className="hidden items-center gap-2 rounded-full px-3 py-2 font-mono text-sm text-muted transition-colors hover:text-ice xl:inline-flex"
-          >
-            <Phone aria-hidden className="size-4" />
-            {site.contact.phoneDisplay}
-          </a>
 
           <Button
             href={bookingUrl}
