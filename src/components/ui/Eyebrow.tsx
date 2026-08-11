@@ -7,7 +7,6 @@ import { cn } from "@/lib/cn";
 export function Eyebrow({
   children,
   className,
-  withDot = true,
 }: {
   children: React.ReactNode;
   className?: string;
@@ -20,12 +19,6 @@ export function Eyebrow({
         className,
       )}
     >
-      {withDot ? (
-        <span
-          aria-hidden
-          className="size-1.5 shrink-0 rounded-full bg-ice shadow-[0_0_10px_2px_rgb(78_225_210/0.6)]"
-        />
-      ) : null}
       {children}
     </span>
   );
