@@ -1,26 +1,291 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ---------------------------------------------------------------------------
+   Alpine Digital — design tokens
+   Dark alpine canvas, glacier-ice primary accent, alpenglow secondary.
+   Tailwind v4 is CSS-first: this @theme block *is* the config.
+--------------------------------------------------------------------------- */
+
+@theme {
+  /* Surfaces */
+  --color-base: #05070a;
+  --color-surface: #0b0f14;
+  --color-surface-2: #121821;
+  --color-line: #1e2732;
+  --color-line-strong: #2b3644;
+
+  /* Text */
+  --color-ink: #eaeff6;
+  /* Contrast on --color-base: ink 17.5:1, muted 7.7:1, faint 5.5:1.
+     All clear WCAG AA (4.5:1) for normal text. Do not darken `faint` — the
+     original #64707F measured 4.0:1 and failed. */
+  --color-muted: #94a1b2;
+  --color-faint: #7a8695;
+
+  /* Accents — ice is the only interactive colour; glow is decorative only. */
+  --color-ice: #4ee1d2;
+  --color-ice-dim: #2bbfb1;
+  --color-ice-soft: #a5f0e7;
+  --color-glow: #ff8a4c;
+  --color-glow-dim: #e06a2c;
+  --color-glow-soft: #ffb489;
+
+  /* Fonts — bound to next/font CSS variables in layout.tsx */
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+
+  /* Fluid display scale */
+  --text-display-xl: clamp(2.75rem, 1.6rem + 5.2vw, 5.5rem);
+  --text-display-lg: clamp(2.25rem, 1.4rem + 3.8vw, 4.25rem);
+  --text-display-md: clamp(1.875rem, 1.3rem + 2.4vw, 3rem);
+  --text-display-sm: clamp(1.5rem, 1.2rem + 1.3vw, 2rem);
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ---------------------------------------------------------------------------
+   Base
+--------------------------------------------------------------------------- */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    border-color: var(--color-line);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Sticky header clearance for in-page anchors */
+    scroll-padding-top: 6rem;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--color-base);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+    line-height: 1.05;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Ice focus ring on every interactive element. */
+  :focus-visible {
+    outline: 2px solid var(--color-ice);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background-color: var(--color-ice);
+    color: var(--color-base);
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-color: var(--color-line-strong) var(--color-base);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-base);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-line-strong);
+    border-radius: 99px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-faint);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ---------------------------------------------------------------------------
+   Utilities
+--------------------------------------------------------------------------- */
+
+@layer utilities {
+  /* Headline gradient. Deliberately stays in the ice family: ice and alpenglow
+     are near-complementary, so interpolating between them dips through a muddy
+     neutral at the midpoint. Alpenglow stays atmospheric — topo, badges, the
+     logo glyph — and teal carries the type. */
+  .text-gradient {
+    background-image: linear-gradient(
+      100deg,
+      var(--color-ice) 0%,
+      var(--color-ice-soft) 52%,
+      #eafcf8 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  /* Warm counterpart, for the rare place alpenglow should lead. */
+  .text-gradient-warm {
+    background-image: linear-gradient(
+      100deg,
+      var(--color-glow) 0%,
+      var(--color-glow-soft) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  /* Hairline top edge that catches "light", used on raised cards. */
+  .edge-lit {
+    box-shadow:
+      inset 0 1px 0 0 rgb(255 255 255 / 0.06),
+      0 1px 2px 0 rgb(0 0 0 / 0.4);
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, var(--color-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--color-line) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  /* Fades a decorative layer out towards the edges. */
+  .mask-radial-fade {
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 100%);
+  }
+
+  .mask-b-fade {
+    mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+  }
+
+  /* Edge fade for horizontally scrolling / marquee rows. */
+  .mask-x-fade {
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      #000 8%,
+      #000 92%,
+      transparent 100%
+    );
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Scroll reveal
+
+   Only hide the element when scripting is actually available — otherwise a
+   no-JS visitor (or a failed hydration) would be left staring at an invisible
+   page. Browsers without `scripting` support simply never hide it, which is the
+   safe direction to fail in.
+--------------------------------------------------------------------------- */
+
+@media (scripting: enabled) {
+  .reveal {
+    opacity: 0;
+    transform: translate3d(0, var(--reveal-y, 16px), 0);
+    transition:
+      opacity 0.6s var(--ease-out-expo),
+      transform 0.6s var(--ease-out-expo);
+    transition-delay: var(--reveal-delay, 0s);
+    will-change: opacity, transform;
+  }
+
+  .reveal[data-shown="true"] {
+    opacity: 1;
+    transform: none;
+    will-change: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal[data-shown="false"] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Keyframes — all gated behind prefers-reduced-motion below.
+--------------------------------------------------------------------------- */
+
+@keyframes topo-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1.04);
+  }
+  50% {
+    transform: translate3d(-1.5%, -1%, 0) scale(1.07);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1.04);
+  }
+}
+
+@keyframes marquee-x {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes aurora-pan {
+  0%,
+  100% {
+    transform: translate3d(-6%, 0, 0) scale(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translate3d(6%, -3%, 0) scale(1.12);
+    opacity: 0.8;
+  }
+}
+
+.animate-topo-drift {
+  animation: topo-drift 34s var(--ease-out-expo) infinite;
+}
+
+.animate-marquee-x {
+  animation: marquee-x 42s linear infinite;
+}
+
+.animate-aurora {
+  animation: aurora-pan 18s ease-in-out infinite;
+}
+
+/* ---------------------------------------------------------------------------
+   Reduced motion — everything resolves to its final, fully visible state.
+--------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
