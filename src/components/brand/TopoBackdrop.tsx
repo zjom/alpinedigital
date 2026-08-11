@@ -56,7 +56,10 @@ export function TopoBackdrop({
         <div
           className={cn(
             "absolute -top-1/3 left-1/2 h-[120%] w-[140%] -translate-x-1/2 animate-aurora",
-            "bg-[radial-gradient(ellipse_38%_46%_at_32%_38%,rgb(78_225_210/0.22),transparent_70%),radial-gradient(ellipse_34%_40%_at_72%_28%,rgb(255_138_76/0.14),transparent_70%)]",
+            // Slate alphas run higher than the sand ones: it is roughly half as
+            // luminous, so matched alphas would leave the cool half of the wash
+            // barely visible against the canvas.
+            "bg-[radial-gradient(ellipse_38%_46%_at_32%_38%,rgb(127_163_196/0.30),transparent_70%),radial-gradient(ellipse_34%_40%_at_72%_28%,rgb(194_162_119/0.14),transparent_70%)]",
             !isHero && "opacity-60",
           )}
         />
@@ -74,15 +77,15 @@ export function TopoBackdrop({
       >
         <defs>
           <linearGradient id="topo-ice" x1="0" y1="0" x2="1" y2="0.4">
-            <stop offset="0%" stopColor="#4EE1D2" stopOpacity="0.05" />
-            <stop offset="40%" stopColor="#4EE1D2" stopOpacity="0.34" />
-            <stop offset="78%" stopColor="#FF8A4C" stopOpacity="0.20" />
-            <stop offset="100%" stopColor="#FF8A4C" stopOpacity="0.04" />
+            <stop offset="0%" stopColor="#7FA3C4" stopOpacity="0.07" />
+            <stop offset="40%" stopColor="#7FA3C4" stopOpacity="0.46" />
+            <stop offset="78%" stopColor="#C2A277" stopOpacity="0.20" />
+            <stop offset="100%" stopColor="#C2A277" stopOpacity="0.04" />
           </linearGradient>
           <linearGradient id="topo-far" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#4EE1D2" stopOpacity="0.03" />
-            <stop offset="55%" stopColor="#4EE1D2" stopOpacity="0.16" />
-            <stop offset="100%" stopColor="#4EE1D2" stopOpacity="0.02" />
+            <stop offset="0%" stopColor="#7FA3C4" stopOpacity="0.04" />
+            <stop offset="55%" stopColor="#7FA3C4" stopOpacity="0.22" />
+            <stop offset="100%" stopColor="#7FA3C4" stopOpacity="0.03" />
           </linearGradient>
         </defs>
 

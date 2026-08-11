@@ -20,7 +20,7 @@ export function Card({
       className={cn(
         "relative overflow-hidden rounded-2xl border border-line bg-surface/70 edge-lit backdrop-blur-sm",
         interactive &&
-          "group transition-all duration-300 hover:-translate-y-1 hover:border-ice/40 hover:bg-surface-2/80 hover:shadow-[0_18px_50px_-20px_rgb(78_225_210/0.28)]",
+          "group transition-all duration-300 hover:-translate-y-1 hover:border-ice/40 hover:bg-surface-2/80 hover:shadow-[0_18px_50px_-20px_rgb(127_163_196/0.28)]",
         className,
       )}
     >

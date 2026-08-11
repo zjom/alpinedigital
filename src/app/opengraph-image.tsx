@@ -65,7 +65,7 @@ export default function OpenGraphImage() {
             <path
               key={y}
               d={`M-40 ${y} C 180 ${y - 34}, 320 ${y - 78}, 520 ${y - 52} S 860 ${y + 30}, 1000 ${y - 6} S 1180 ${y - 44}, 1240 ${y - 20}`}
-              stroke="#4EE1D2"
+              stroke="#7FA3C4"
               strokeOpacity={0.3 - i * 0.045}
               strokeWidth={1.4}
               fill="none"
@@ -78,13 +78,13 @@ export default function OpenGraphImage() {
           <svg width="48" height="48" viewBox="0 0 32 32" fill="none">
             <path
               d="M16 4 L27 23 H5 Z"
-              stroke="#4EE1D2"
+              stroke="#7FA3C4"
               strokeWidth="2"
               strokeLinejoin="round"
             />
             <path
               d="M11.5 12.5 L16 9 L20.5 12.5"
-              stroke="#FF8A4C"
+              stroke="#C2A277"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -92,7 +92,7 @@ export default function OpenGraphImage() {
           </svg>
           <div style={{ display: "flex", fontSize: 30, fontWeight: 700 }}>
             <span style={{ color: "#EAEFF6" }}>Alpine</span>
-            <span style={{ color: "#4EE1D2" }}>Digital</span>
+            <span style={{ color: "#7FA3C4" }}>Digital</span>
           </div>
         </div>
 
@@ -111,7 +111,7 @@ export default function OpenGraphImage() {
             <span style={{ color: "#EAEFF6" }}>
               Your business is brilliant offline.
             </span>
-            <span style={{ color: "#4EE1D2" }}>
+            <span style={{ color: "#7FA3C4" }}>
               Let&rsquo;s make it unmissable online.
             </span>
           </div>

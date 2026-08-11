@@ -15,8 +15,8 @@ const BASE =
 const VARIANTS: Record<Variant, string> = {
   // Ice fill, base-coloured text. The single strongest affordance on the page.
   primary:
-    "bg-ice text-base font-semibold shadow-[0_0_0_0_rgb(78_225_210/0.5)] " +
-    "hover:bg-ice-soft hover:shadow-[0_8px_30px_-6px_rgb(78_225_210/0.55)] " +
+    "bg-ice text-base font-semibold shadow-[0_0_0_0_rgb(127_163_196/0.5)] " +
+    "hover:bg-ice-soft hover:shadow-[0_8px_30px_-6px_rgb(127_163_196/0.55)] " +
     "hover:-translate-y-0.5 active:translate-y-0",
   secondary:
     "border border-line-strong bg-surface/60 text-ink backdrop-blur-sm " +

@@ -18,8 +18,8 @@ export function PeakGlyph({ className }: { className?: string }) {
     >
       <defs>
         <linearGradient id="peak-grad" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#4EE1D2" />
-          <stop offset="100%" stopColor="#FF8A4C" />
+          <stop offset="0%" stopColor="#7FA3C4" />
+          <stop offset="100%" stopColor="#C2A277" />
         </linearGradient>
       </defs>
       {/* Summit */}
@@ -32,7 +32,7 @@ export function PeakGlyph({ className }: { className?: string }) {
       {/* Snowline */}
       <path
         d="M11.5 12.5 L16 9 L20.5 12.5"
-        stroke="#4EE1D2"
+        stroke="#7FA3C4"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -40,7 +40,7 @@ export function PeakGlyph({ className }: { className?: string }) {
       {/* Contour beneath */}
       <path
         d="M2 28 C 8 26.5, 12 29, 16 28 S 25 26.5, 30 28"
-        stroke="#4EE1D2"
+        stroke="#7FA3C4"
         strokeOpacity="0.45"
         strokeWidth="1.5"
         strokeLinecap="round"

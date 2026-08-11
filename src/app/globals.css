@@ -2,7 +2,7 @@
 
 /* ---------------------------------------------------------------------------
    Alpine Digital — design tokens
-   Dark alpine canvas, glacier-ice primary accent, alpenglow secondary.
+   Dark alpine canvas, glacier-slate primary accent, warm-sand secondary.
    Tailwind v4 is CSS-first: this @theme block *is* the config.
 --------------------------------------------------------------------------- */
 
@@ -22,13 +22,17 @@
   --color-muted: #94a1b2;
   --color-faint: #7a8695;
 
-  /* Accents — ice is the only interactive colour; glow is decorative only. */
-  --color-ice: #4ee1d2;
-  --color-ice-dim: #2bbfb1;
-  --color-ice-soft: #a5f0e7;
-  --color-glow: #ff8a4c;
-  --color-glow-dim: #e06a2c;
-  --color-glow-soft: #ffb489;
+  /* Accents — ice is the only interactive colour; glow is decorative only.
+     Both families are deliberately desaturated: at full chroma this pair reads
+     neon, which is wrong for the tone. Contrast on --color-base: ice 7.6:1,
+     ice-dim 5.0:1, glow 8.4:1 — all clear WCAG AA. Do not push either family
+     further towards grey without re-measuring. */
+  --color-ice: #7fa3c4;
+  --color-ice-dim: #5c82a6;
+  --color-ice-soft: #b9cfe3;
+  --color-glow: #c2a277;
+  --color-glow-dim: #9e8158;
+  --color-glow-soft: #dcc5a4;
 
   /* Fonts — bound to next/font CSS variables in layout.tsx */
   --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
@@ -123,23 +127,23 @@
 --------------------------------------------------------------------------- */
 
 @layer utilities {
-  /* Headline gradient. Deliberately stays in the ice family: ice and alpenglow
-     are near-complementary, so interpolating between them dips through a muddy
-     neutral at the midpoint. Alpenglow stays atmospheric — topo, badges, the
-     logo glyph — and teal carries the type. */
+  /* Headline gradient. Deliberately stays in the ice family: slate and sand are
+     near-complementary, so interpolating between them dips through a muddy
+     neutral at the midpoint. Sand stays atmospheric — topo, badges, the logo
+     glyph — and slate carries the type. */
   .text-gradient {
     background-image: linear-gradient(
       100deg,
       var(--color-ice) 0%,
       var(--color-ice-soft) 52%,
-      #eafcf8 100%
+      #eaf1f8 100%
     );
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
   }
 
-  /* Warm counterpart, for the rare place alpenglow should lead. */
+  /* Warm counterpart, for the rare place sand should lead. */
   .text-gradient-warm {
     background-image: linear-gradient(
       100deg,
