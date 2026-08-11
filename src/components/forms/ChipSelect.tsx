@@ -95,7 +95,7 @@ export function ChipSelect<T extends string>(props: ChipSelectProps<T>) {
       </div>
 
       {error ? (
-        <p id={errorId} className="mt-3 text-xs text-glow-soft">
+        <p id={errorId} className="mt-3 text-xs text-danger-soft">
           {error}
         </p>
       ) : null}

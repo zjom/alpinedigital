@@ -53,7 +53,7 @@ function FieldShell({
       ) : null}
       {children}
       {error ? (
-        <p id={errorId} className="text-xs text-glow-soft">
+        <p id={errorId} className="text-xs text-danger-soft">
           {error}
         </p>
       ) : null}
@@ -88,7 +88,7 @@ export function TextField({
         id={id}
         aria-invalid={error ? true : undefined}
         aria-describedby={describedBy}
-        className={cn(CONTROL, error ? "border-glow/60" : "border-line")}
+        className={cn(CONTROL, error ? "border-danger/60" : "border-line")}
         {...props}
       />
     </FieldShell>
@@ -122,7 +122,7 @@ export function TextAreaField({
         className={cn(
           CONTROL,
           "resize-y",
-          error ? "border-glow/60" : "border-line",
+          error ? "border-danger/60" : "border-line",
         )}
         {...props}
       />

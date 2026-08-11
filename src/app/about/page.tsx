@@ -79,7 +79,7 @@ export default function AboutPage() {
         <Container size="wide">
           <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
             <Reveal className="lg:sticky lg:top-28 lg:self-start">
-              <h2 className="font-mono text-xs uppercase tracking-[0.18em] text-ice">
+              <h2 className="font-mono text-xs uppercase tracking-[0.18em] text-ink">
                 The short version
               </h2>
             </Reveal>

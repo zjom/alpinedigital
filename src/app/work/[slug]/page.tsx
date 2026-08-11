@@ -148,7 +148,7 @@ export default async function CaseStudyPage({
           <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-16">
             {/* Approach rail */}
             <Reveal className="lg:sticky lg:top-28 lg:self-start">
-              <h2 className="font-mono text-xs uppercase tracking-[0.18em] text-ice">
+              <h2 className="font-mono text-xs uppercase tracking-[0.18em] text-ink">
                 How we approached it
               </h2>
               <ul className="mt-6 flex flex-col gap-4">

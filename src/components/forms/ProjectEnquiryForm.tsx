@@ -333,7 +333,7 @@ export function ProjectEnquiryForm() {
       {submitError ? (
         <p
           role="alert"
-          className="mt-6 rounded-xl border border-glow/40 bg-glow/10 px-4 py-3 text-sm text-glow-soft"
+          className="mt-6 rounded-xl border border-danger/40 bg-danger/10 px-4 py-3 text-sm text-danger-soft"
         >
           {submitError}
         </p>

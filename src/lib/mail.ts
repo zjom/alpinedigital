@@ -49,13 +49,13 @@ function escapeHtml(value: string): string {
 function renderHtml(enquiry: EnquiryInput): string {
   const row = (label: string, value: string) =>
     `<tr>
-      <td style="padding:6px 16px 6px 0;color:#64707f;font-size:13px;vertical-align:top;white-space:nowrap">${label}</td>
-      <td style="padding:6px 0;color:#0b0f14;font-size:14px">${escapeHtml(value) || "&mdash;"}</td>
+      <td style="padding:6px 16px 6px 0;color:#737373;font-size:13px;vertical-align:top;white-space:nowrap">${label}</td>
+      <td style="padding:6px 0;color:#171717;font-size:14px">${escapeHtml(value) || "&mdash;"}</td>
     </tr>`;
 
   return `<div style="font-family:system-ui,-apple-system,sans-serif;max-width:600px">
-    <h2 style="margin:0 0 4px;font-size:18px;color:#0b0f14">New enquiry</h2>
-    <p style="margin:0 0 20px;color:#64707f;font-size:13px">${escapeHtml(enquiry.businessName)} &middot; ${escapeHtml(enquiry.industry)}</p>
+    <h2 style="margin:0 0 4px;font-size:18px;color:#171717">New enquiry</h2>
+    <p style="margin:0 0 20px;color:#737373;font-size:13px">${escapeHtml(enquiry.businessName)} &middot; ${escapeHtml(enquiry.industry)}</p>
     <table style="border-collapse:collapse;width:100%">
       ${row("Name", enquiry.name)}
       ${row("Email", enquiry.email)}
@@ -67,9 +67,9 @@ function renderHtml(enquiry: EnquiryInput): string {
       ${row("Budget", enquiry.budget)}
       ${row("Timeline", enquiry.timeline)}
     </table>
-    <div style="margin-top:20px;padding-top:16px;border-top:1px solid #e5e7eb">
-      <p style="margin:0 0 6px;color:#64707f;font-size:13px">Message</p>
-      <p style="margin:0;color:#0b0f14;font-size:14px;white-space:pre-wrap">${escapeHtml(enquiry.message || "—")}</p>
+    <div style="margin-top:20px;padding-top:16px;border-top:1px solid #e5e5e5">
+      <p style="margin:0 0 6px;color:#737373;font-size:13px">Message</p>
+      <p style="margin:0;color:#171717;font-size:14px;white-space:pre-wrap">${escapeHtml(enquiry.message || "—")}</p>
     </div>
   </div>`;
 }

@@ -14,7 +14,7 @@ export function PlaceholderRibbon() {
 
   return (
     /* Bottom-right: bottom-left is where Next's own dev indicator sits. */
-    <div className="pointer-events-none fixed right-3 bottom-3 z-100 hidden max-w-[15rem] rounded-lg border border-glow/40 bg-glow/10 px-3 py-2 font-mono text-[0.625rem] leading-relaxed text-glow-soft backdrop-blur-sm lg:block">
+    <div className="pointer-events-none fixed right-3 bottom-3 z-100 hidden max-w-[15rem] rounded-lg border border-danger/40 bg-danger/10 px-3 py-2 font-mono text-[0.625rem] leading-relaxed text-danger-soft backdrop-blur-sm lg:block">
       <strong className="block font-bold uppercase tracking-wider">
         Placeholder content
       </strong>

@@ -16,6 +16,7 @@ export function organizationJsonLd() {
     name: site.name,
     legalName: site.legalName,
     url: siteUrl,
+    logo: absoluteUrl("/alpine_digital_logo.svg"),
     description: site.description,
     email: site.contact.email,
     telephone: site.contact.phone,

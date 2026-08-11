@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { LOCKUP_PATHS, LOCKUP_VIEWBOX } from "@/components/brand/logoPaths";
 import { site } from "@/content/site";
 
 export const alt = `${site.name} — ${site.tagline}`;
@@ -23,12 +24,13 @@ export default function OpenGraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#05070A",
+          background: "#000000",
           padding: 72,
           position: "relative",
         }}
       >
-        {/* Aurora wash */}
+        {/* Light wash — mirrors TopoBackdrop: two white blooms separated by
+            alpha rather than by hue. */}
         <div
           style={{
             position: "absolute",
@@ -37,7 +39,7 @@ export default function OpenGraphImage() {
             width: 900,
             height: 700,
             background:
-              "radial-gradient(closest-side, rgba(78,225,210,0.22), rgba(5,7,10,0))",
+              "radial-gradient(closest-side, rgba(255,255,255,0.10), rgba(0,0,0,0))",
             display: "flex",
           }}
         />
@@ -49,7 +51,7 @@ export default function OpenGraphImage() {
             width: 760,
             height: 620,
             background:
-              "radial-gradient(closest-side, rgba(255,138,76,0.16), rgba(5,7,10,0))",
+              "radial-gradient(closest-side, rgba(255,255,255,0.05), rgba(0,0,0,0))",
             display: "flex",
           }}
         />
@@ -65,7 +67,7 @@ export default function OpenGraphImage() {
             <path
               key={y}
               d={`M-40 ${y} C 180 ${y - 34}, 320 ${y - 78}, 520 ${y - 52} S 860 ${y + 30}, 1000 ${y - 6} S 1180 ${y - 44}, 1240 ${y - 20}`}
-              stroke="#7FA3C4"
+              stroke="#FFFFFF"
               strokeOpacity={0.3 - i * 0.045}
               strokeWidth={1.4}
               fill="none"
@@ -74,26 +76,17 @@ export default function OpenGraphImage() {
         </svg>
 
         {/* Wordmark */}
-        <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
-          <svg width="48" height="48" viewBox="0 0 32 32" fill="none">
-            <path
-              d="M16 4 L27 23 H5 Z"
-              stroke="#7FA3C4"
-              strokeWidth="2"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M11.5 12.5 L16 9 L20.5 12.5"
-              stroke="#C2A277"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <svg
+            width="126"
+            height="76"
+            viewBox={LOCKUP_VIEWBOX}
+            fill="#EDEDED"
+          >
+            {LOCKUP_PATHS.map((d) => (
+              <path key={d} d={d} />
+            ))}
           </svg>
-          <div style={{ display: "flex", fontSize: 30, fontWeight: 700 }}>
-            <span style={{ color: "#EAEFF6" }}>Alpine</span>
-            <span style={{ color: "#7FA3C4" }}>Digital</span>
-          </div>
         </div>
 
         {/* Headline */}
@@ -108,10 +101,10 @@ export default function OpenGraphImage() {
               letterSpacing: -2.4,
             }}
           >
-            <span style={{ color: "#EAEFF6" }}>
+            <span style={{ color: "#EDEDED" }}>
               Your business is brilliant offline.
             </span>
-            <span style={{ color: "#7FA3C4" }}>
+            <span style={{ color: "#8F8F8F" }}>
               Let&rsquo;s make it unmissable online.
             </span>
           </div>
@@ -121,15 +114,15 @@ export default function OpenGraphImage() {
               display: "flex",
               gap: 28,
               fontSize: 22,
-              color: "#94A1B2",
+              color: "#A1A1A1",
             }}
           >
             <span>Websites</span>
-            <span style={{ color: "#2B3644" }}>·</span>
+            <span style={{ color: "#3A3A3A" }}>·</span>
             <span>Ecommerce</span>
-            <span style={{ color: "#2B3644" }}>·</span>
+            <span style={{ color: "#3A3A3A" }}>·</span>
             <span>Google Ads</span>
-            <span style={{ color: "#2B3644" }}>·</span>
+            <span style={{ color: "#3A3A3A" }}>·</span>
             <span>Bespoke systems</span>
           </div>
         </div>

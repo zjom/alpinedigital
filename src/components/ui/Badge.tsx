@@ -1,10 +1,10 @@
 import { cn } from "@/lib/cn";
 
-type Tone = "ice" | "glow" | "neutral";
+type Tone = "ice" | "danger" | "neutral";
 
 const TONES: Record<Tone, string> = {
   ice: "border-ice/25 bg-ice/10 text-ice",
-  glow: "border-glow/25 bg-glow/10 text-glow-soft",
+  danger: "border-danger/25 bg-danger/10 text-danger-soft",
   neutral: "border-line-strong bg-surface-2 text-muted",
 };
 

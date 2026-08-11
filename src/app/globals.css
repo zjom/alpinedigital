@@ -2,37 +2,45 @@
 
 /* ---------------------------------------------------------------------------
    Alpine Digital — design tokens
-   Dark alpine canvas, glacier-slate primary accent, warm-sand secondary.
+
+   Monotone. Every surface, line and accent is a pure neutral (R=G=B) on a black
+   canvas; hierarchy comes from luminance, weight and scale rather than hue. The
+   single exception is `danger`, which stays chromatic on purpose — an invalid
+   field has to be distinguishable from an emphasised one, and greyscale cannot
+   carry that signal. Do not introduce a second hue.
+
    Tailwind v4 is CSS-first: this @theme block *is* the config.
 --------------------------------------------------------------------------- */
 
 @theme {
   /* Surfaces */
-  --color-base: #05070a;
-  --color-surface: #0b0f14;
-  --color-surface-2: #121821;
-  --color-line: #1e2732;
-  --color-line-strong: #2b3644;
+  --color-base: #000000;
+  --color-surface: #0a0a0a;
+  --color-surface-2: #171717;
+  --color-line: #242424;
+  --color-line-strong: #3a3a3a;
 
   /* Text */
-  --color-ink: #eaeff6;
-  /* Contrast on --color-base: ink 17.5:1, muted 7.7:1, faint 5.5:1.
-     All clear WCAG AA (4.5:1) for normal text. Do not darken `faint` — the
-     original #64707F measured 4.0:1 and failed. */
-  --color-muted: #94a1b2;
-  --color-faint: #7a8695;
+  --color-ink: #ededed;
+  /* Contrast on --color-base: ink 15.9:1, muted 8.6:1, faint 4.9:1.
+     All clear WCAG AA (4.5:1) for normal text. `faint` has the least headroom
+     of the three — do not darken it further without re-measuring. */
+  --color-muted: #a1a1a1;
+  --color-faint: #7d7d7d;
 
-  /* Accents — ice is the only interactive colour; glow is decorative only.
-     Both families are deliberately desaturated: at full chroma this pair reads
-     neon, which is wrong for the tone. Contrast on --color-base: ice 7.6:1,
-     ice-dim 5.0:1, glow 8.4:1 — all clear WCAG AA. Do not push either family
-     further towards grey without re-measuring. */
-  --color-ice: #7fa3c4;
-  --color-ice-dim: #5c82a6;
-  --color-ice-soft: #b9cfe3;
-  --color-glow: #c2a277;
-  --color-glow-dim: #9e8158;
-  --color-glow-soft: #dcc5a4;
+  /* Accent. With no hue to spend, emphasis is simply *brighter than ink*, which
+     tops out at white — so unlike a chromatic ramp this one only steps down.
+     `-soft` is the hover partner and `-dim` the pressed partner for anything
+     that already sits at full `ice`; both are darker than the base token by
+     design. Against `ice` fills, text must be `--color-base`. */
+  --color-ice: #ffffff;
+  --color-ice-soft: #cfcfcf;
+  --color-ice-dim: #a3a3a3;
+
+  /* Invalid state only — never decoration. 6.0:1 for `danger-soft` on base;
+     `danger` itself is used at low alpha for fills and borders. */
+  --color-danger: #d95c4a;
+  --color-danger-soft: #f0a396;
 
   /* Fonts — bound to next/font CSS variables in layout.tsx */
   --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
@@ -127,28 +135,17 @@
 --------------------------------------------------------------------------- */
 
 @layer utilities {
-  /* Headline gradient. Deliberately stays in the ice family: slate and sand are
-     near-complementary, so interpolating between them dips through a muddy
-     neutral at the midpoint. Sand stays atmospheric — topo, badges, the logo
-     glyph — and slate carries the type. */
+  /* Headline gradient — top-lit white falling away to grey. Vertical rather
+     than angled: with no hue to shift, the only thing a gradient can express is
+     light direction, and that reads as coming from above. The white is held
+     flat to 30% so short single-line text (the stat numerals) still starts at
+     full brightness instead of picking up mid-ramp. */
   .text-gradient {
     background-image: linear-gradient(
-      100deg,
-      var(--color-ice) 0%,
-      var(--color-ice-soft) 52%,
-      #eaf1f8 100%
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-  }
-
-  /* Warm counterpart, for the rare place sand should lead. */
-  .text-gradient-warm {
-    background-image: linear-gradient(
-      100deg,
-      var(--color-glow) 0%,
-      var(--color-glow-soft) 100%
+      180deg,
+      #ffffff 0%,
+      #ffffff 30%,
+      #8f8f8f 100%
     );
     background-clip: text;
     -webkit-background-clip: text;

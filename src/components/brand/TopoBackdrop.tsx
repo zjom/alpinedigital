@@ -51,15 +51,16 @@ export function TopoBackdrop({
         className,
       )}
     >
-      {/* Aurora wash — the colour bed the contours sit on. */}
+      {/* Light wash — the bed the contours sit on. */}
       <div className="absolute inset-0 mask-radial-fade">
         <div
           className={cn(
             "absolute -top-1/3 left-1/2 h-[120%] w-[140%] -translate-x-1/2 animate-aurora",
-            // Slate alphas run higher than the sand ones: it is roughly half as
-            // luminous, so matched alphas would leave the cool half of the wash
-            // barely visible against the canvas.
-            "bg-[radial-gradient(ellipse_38%_46%_at_32%_38%,rgb(127_163_196/0.30),transparent_70%),radial-gradient(ellipse_34%_40%_at_72%_28%,rgb(194_162_119/0.14),transparent_70%)]",
+            // Two offset white blooms at different strengths. Without hue to
+            // separate them, the only thing that keeps this from flattening
+            // into one smear is the gap in alpha — keep the second well under
+            // the first.
+            "bg-[radial-gradient(ellipse_38%_46%_at_32%_38%,rgb(255_255_255/0.10),transparent_70%),radial-gradient(ellipse_34%_40%_at_72%_28%,rgb(255_255_255/0.045),transparent_70%)]",
             !isHero && "opacity-60",
           )}
         />
@@ -76,16 +77,20 @@ export function TopoBackdrop({
         fill="none"
       >
         <defs>
-          <linearGradient id="topo-ice" x1="0" y1="0" x2="1" y2="0.4">
-            <stop offset="0%" stopColor="#7FA3C4" stopOpacity="0.07" />
-            <stop offset="40%" stopColor="#7FA3C4" stopOpacity="0.46" />
-            <stop offset="78%" stopColor="#C2A277" stopOpacity="0.20" />
-            <stop offset="100%" stopColor="#C2A277" stopOpacity="0.04" />
+          {/* The contours used to shift slate -> sand across their length; with
+              one colour left, that travel is expressed purely in alpha. The
+              near cluster peaks harder and later than the far one, which is
+              what still separates the two layers in depth. */}
+          <linearGradient id="topo-near" x1="0" y1="0" x2="1" y2="0.4">
+            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.04" />
+            <stop offset="40%" stopColor="#FFFFFF" stopOpacity="0.30" />
+            <stop offset="78%" stopColor="#FFFFFF" stopOpacity="0.13" />
+            <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0.02" />
           </linearGradient>
           <linearGradient id="topo-far" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#7FA3C4" stopOpacity="0.04" />
-            <stop offset="55%" stopColor="#7FA3C4" stopOpacity="0.22" />
-            <stop offset="100%" stopColor="#7FA3C4" stopOpacity="0.03" />
+            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.02" />
+            <stop offset="55%" stopColor="#FFFFFF" stopOpacity="0.13" />
+            <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0.015" />
           </linearGradient>
         </defs>
 
@@ -95,7 +100,7 @@ export function TopoBackdrop({
           ))}
         </g>
 
-        <g stroke="url(#topo-ice)" strokeWidth="1.25">
+        <g stroke="url(#topo-near)" strokeWidth="1.25">
           {CONTOURS.map((d) => (
             <path key={d} d={d} />
           ))}
@@ -103,7 +108,7 @@ export function TopoBackdrop({
       </svg>
 
       {/* Grounds the composition and stops the motif fighting the copy. */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgb(5_7_10/0.35)_0%,transparent_35%,rgb(5_7_10/0.85)_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgb(0_0_0/0.35)_0%,transparent_35%,rgb(0_0_0/0.85)_100%)]" />
     </div>
   );
 }

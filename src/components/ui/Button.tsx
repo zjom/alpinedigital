@@ -13,14 +13,16 @@ const BASE =
   "disabled:pointer-events-none disabled:opacity-50";
 
 const VARIANTS: Record<Variant, string> = {
-  // Ice fill, base-coloured text. The single strongest affordance on the page.
+  // Full inversion: white fill, base-coloured text. In a monotone palette this
+  // is the only affordance that can outrank everything around it, so nothing
+  // else on a page may use it.
   primary:
-    "bg-ice text-base font-semibold shadow-[0_0_0_0_rgb(127_163_196/0.5)] " +
-    "hover:bg-ice-soft hover:shadow-[0_8px_30px_-6px_rgb(127_163_196/0.55)] " +
+    "bg-ice text-base font-semibold shadow-[0_0_0_0_rgb(255_255_255/0.4)] " +
+    "hover:bg-ice-soft hover:shadow-[0_8px_30px_-6px_rgb(255_255_255/0.28)] " +
     "hover:-translate-y-0.5 active:translate-y-0",
   secondary:
     "border border-line-strong bg-surface/60 text-ink backdrop-blur-sm " +
-    "hover:border-ice/60 hover:bg-surface-2 hover:-translate-y-0.5 active:translate-y-0",
+    "hover:border-ice/40 hover:bg-surface-2 hover:-translate-y-0.5 active:translate-y-0",
   ghost: "text-muted hover:text-ink hover:bg-surface-2",
 };
 
