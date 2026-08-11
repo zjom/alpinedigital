@@ -16,7 +16,7 @@ export const site = {
   legalName: "Alpine Digital Pty Ltd", // PLACEHOLDER
   tagline: "Digital presence, engineered.",
   description:
-    "Alpine Digital takes established Australian and New Zealand businesses online — websites, ecommerce, Google Ads and Merchant Center, email and domains, and bespoke systems. Training and support included, always.",
+    "Alpine Digital takes established Australian businesses online — websites, ecommerce, Google Ads and Merchant Center, email and domains, and bespoke systems. Training and support included, always.",
 
   // PLACEHOLDER — set to the real domain before launch. Used for canonicals,
   // sitemap URLs and OG image resolution.
@@ -32,12 +32,12 @@ export const site = {
   },
 
   location: {
-    region: "Australia & New Zealand",
+    region: "Australia",
     city: "Melbourne", // PLACEHOLDER
     state: "VIC", // PLACEHOLDER
     country: "AU",
     /** Shown as the service area — we work remotely across both markets. */
-    serviceArea: "Working with businesses across Australia and New Zealand",
+    serviceArea: "Working with businesses across Australia",
   },
 
   social: {

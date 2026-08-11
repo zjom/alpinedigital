@@ -14,7 +14,7 @@ import { caseStudies } from "@/content/caseStudies";
 export const metadata = buildMetadata({
   title: "Case studies",
   description:
-    "Real Australian and New Zealand businesses, real numbers. Trade ecommerce turning over millions, custom job scheduling, wholesale channels built from a single storefront.",
+    "Real Australian businesses, real numbers. Trade ecommerce turning over millions, custom job scheduling, wholesale channels built from a single storefront.",
   path: "/work",
 });
 

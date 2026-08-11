@@ -93,7 +93,7 @@ export const caseStudies: readonly CaseStudy[] = [
     slug: "harbour-lane-provisions",
     client: "Harbour Lane Provisions", // PLACEHOLDER
     industry: "Specialty food & retail",
-    location: "Auckland, NZ",
+    location: "Canberra, ACT",
     year: "2025",
     headline: "A single storefront turned into a national wholesale channel",
     summary:
@@ -102,7 +102,7 @@ export const caseStudies: readonly CaseStudy[] = [
     metrics: [
       { label: "Wholesale accounts opened", value: 148, suffix: "" },
       {
-        label: "Revenue from outside Auckland",
+        label: "Revenue from outside Canberra",
         value: 62,
         suffix: "%",
         note: "Was effectively 0% pre-launch",
@@ -120,7 +120,7 @@ export const caseStudies: readonly CaseStudy[] = [
     build:
       "A Shopify build — the honest right answer here, rather than something custom they'd have to pay us to maintain forever. We built a wholesale portal on top with approval-gated pricing, wired up refrigerated shipping rules by postcode, and constructed a clean Merchant Center feed with proper GTINs so Shopping ads actually served.",
     result:
-      "Wholesale is now a genuine second business line, and nearly two thirds of revenue comes from outside Auckland. The owners manage the catalogue themselves and call us when they want something new, not when something's broken.",
+      "Wholesale is now a genuine second business line, and nearly two thirds of revenue comes from outside Canberra. The owners manage the catalogue themselves and call us when they want something new, not when something's broken.",
     quote: {
       text: "Two other agencies quoted us more than double and neither could explain what we were paying for. Alpine walked us through it line by line. We understood exactly what we were buying.",
       author: "PLACEHOLDER — client name",

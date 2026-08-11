@@ -42,7 +42,7 @@ export default function PrivacyPage() {
             <p>
               {site.legalName} (ABN {site.contact.abn}) trading as {site.name}{" "}
               (&ldquo;we&rdquo;, &ldquo;us&rdquo;) provides digital consultancy
-              services to businesses in Australia and New Zealand. We are bound
+              services to businesses in Australia. We are bound
               by the Australian Privacy Principles set out in the Privacy Act
               1988 (Cth).
             </p>

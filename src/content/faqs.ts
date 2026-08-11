@@ -42,7 +42,7 @@ export const faqs: readonly Faq[] = [
   {
     question: "Do you only work with businesses in your city?",
     answer:
-      "No. We work with businesses right across Australia and New Zealand, and most of our engagements run remotely without issue. For larger projects we'll happily come to you — for some builds there's no substitute for standing in the warehouse and watching how things actually work.",
+      "No. We work with businesses right across Australia, and most of our engagements run remotely without issue. For larger projects we'll happily come to you — for some builds there's no substitute for standing in the warehouse and watching how things actually work.",
   },
   {
     question: "What happens after launch?",

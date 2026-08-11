@@ -29,7 +29,6 @@ export function organizationJsonLd() {
     },
     areaServed: [
       { "@type": "Country", name: "Australia" },
-      { "@type": "Country", name: "New Zealand" },
     ],
     sameAs: [site.social.linkedin, site.social.instagram],
     hasOfferCatalog: {

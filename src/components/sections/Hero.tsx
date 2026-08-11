@@ -28,7 +28,7 @@ export function Hero() {
       >
         <div className="max-w-4xl">
           <Eyebrow className="mb-7">
-            Digital consultancy · Australia &amp; New Zealand
+            Digital consultancy · Australia
           </Eyebrow>
 
           <h1 className="text-(length:--text-display-xl) text-ink">

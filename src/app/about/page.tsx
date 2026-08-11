@@ -20,7 +20,7 @@ import { site } from "@/content/site";
 export const metadata = buildMetadata({
   title: "About",
   description:
-    "We're a young, fast digital consultancy for established Australian and New Zealand businesses. Strong offline operators who need the online half built properly — with no jargon, no lock-in and no surprise invoices.",
+    "We're a young, fast digital consultancy for established Australian businesses. Strong offline operators who need the online half built properly — with no jargon, no lock-in and no surprise invoices.",
   path: "/about",
 });
 
