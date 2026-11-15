@@ -26,8 +26,8 @@
       <li>
         <h2>Every job in a pharmacy but pharmacist</h2>
         <p>
-          Over {FOUNDER.years}, {FOUNDER.name} unpacks the delivery, works the till, the shop floor and
-          the dispensary, then manages, and keeps running into the same problems.
+          Across {FOUNDER.years}, {FOUNDER.name} unpacks the delivery, works the till, the shop floor
+          and the dispensary, then manages, and keeps running into the same problems.
         </p>
         <ul class="jobs" aria-label="The jobs, first to last">
           {#each earlier as job (job)}<li>{job}</li>{/each}
@@ -130,6 +130,7 @@
     letter-spacing: -0.035em;
     line-height: 1.05;
     text-wrap: balance;
+    overflow-wrap: break-word;
   }
   .line > li > p {
     max-width: 36rem;
@@ -144,6 +145,8 @@
     margin-top: 1.25rem;
   }
   .jobs li {
+    max-width: 100%;
+    overflow-wrap: anywhere;
     padding: 0.25rem 0.75rem;
     border-radius: 999px;
     box-shadow: inset 0 0 0 1px var(--color-line-strong);

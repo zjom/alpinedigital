@@ -18,6 +18,7 @@ pnpm check        # wrangler types, then svelte-check: 0 errors, 0 warnings
 pnpm exec oxfmt . # format
 pnpm preview      # build, then the real Workers runtime at http://localhost:8787
 node scripts/shots.mjs http://localhost:5173 .shots   # the page, desktop and phone
+node scripts/og.mjs   # static/og.png, the link-preview card, after the logo changes
 ```
 
 ## Before launch

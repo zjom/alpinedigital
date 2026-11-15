@@ -11,9 +11,9 @@ Run commands through `nix develop -c` (or direnv): `pnpm dev`, `pnpm check`,
 
 ```
 src/
-  app.css            the tokens (Mortar's page in the dark) and classes: .wrap, .display, .m-label, .m-num, .lede, .link, .m-btn, .tap, .rise
+  app.css            the tokens (Mortar's page in the dark) and classes: .wrap, .display, .m-num, .lede, .link, .m-btn, .tap, .rise
   lib/company.ts     every fact the site states: COMPANY, MORTAR, FOUNDER, TPN, abnLookup()
-  lib/components/    Logo, Nav, Footer, Actions (the two buttons), Arrow
+  lib/components/    Logo, Nav, Footer, Actions (the two buttons), Arrow, Email (breaks after the @)
   routes/+page.svelte   the page: the company's origin down one line, from the pharmacy jobs to the reader's group
 www/                 a second worker: www → the bare domain
 ```

@@ -16,8 +16,8 @@
     "Instrument Sans Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "Geist Mono Variable", ui-monospace, "SF Mono", "Cascadia Code", monospace;
 
+  /* #090a0d. app.html's theme-color and the favicon repeat it as hex. */
   --color-night: oklch(0.145 0.006 258);
-  --color-surface: oklch(0.182 0.007 258);
   --color-bone: oklch(0.225 0.008 258);
 
   --color-ink: #eaeff6;
@@ -31,8 +31,6 @@
   --color-accent-deep: oklch(0.86 0.012 258);
   --color-on-accent: oklch(0.145 0.006 258);
 
-  --text-label: 0.6875rem;
-  --text-label--line-height: 1.4;
   --text-caption: 0.8125rem;
   --text-caption--line-height: 1.5;
   --text-small: 0.9375rem;
@@ -41,18 +39,10 @@
   --text-body--line-height: 1.6;
   --text-lede: 1.125rem;
   --text-lede--line-height: 1.6;
-  --text-subhead: clamp(1.5rem, 2.4vw, 1.875rem);
-  --text-subhead--line-height: 1.1;
   --text-title: clamp(1.875rem, 3.8vw, 2.875rem);
   --text-title--line-height: 1.02;
-  --text-headline: clamp(2.125rem, 5vw, 3.75rem);
-  --text-headline--line-height: 1.02;
   --text-display: clamp(2.75rem, 10.5vw, 8rem);
   --text-display--line-height: 0.94;
-  --text-answer: clamp(1.75rem, 3.6vw, 3rem);
-  --text-answer--line-height: 1.08;
-
-  --radius-card: 0.875rem;
 
   --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -120,35 +110,21 @@
     }
   }
 
-  /* Headlines: the wordmark's face a step lighter, set tight. */
+  /* Headlines: the wordmark's face a step lighter, set tight. A word wider
+     than the screen (large text settings) breaks rather than spilling out. */
   .display {
     font-weight: 600;
     letter-spacing: -0.035em;
     line-height: 1.02;
     text-wrap: balance;
+    overflow-wrap: break-word;
   }
   .display em {
     font-style: italic;
     letter-spacing: -0.03em;
   }
 
-  /* Mortar's wordmark: "mortar", lowercase, Instrument Sans Bold at -2%. */
-  .wordmark {
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1;
-  }
-
-  /* Small capitals for data: a field's name, a date, a count. Never a sentence. */
-  .m-label {
-    font-family: var(--font-mono);
-    font-size: var(--text-label);
-    font-weight: 500;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--color-ink-3);
-  }
-
+  /* Data in the mono face: a number, never a sentence. */
   .m-num {
     font-family: var(--font-mono);
     font-variant-numeric: tabular-nums;
@@ -179,13 +155,16 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+    max-width: 100%;
     min-height: 2.75rem;
     padding: 0.625rem 1.25rem;
     border-radius: 999px;
     font-size: var(--text-small);
     font-weight: 500;
     line-height: 1.2;
-    white-space: nowrap;
+    text-align: center;
+    text-wrap: balance;
+    overflow-wrap: anywhere;
     transition:
       background-color 160ms,
       color 160ms,

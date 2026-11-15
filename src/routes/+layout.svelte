@@ -5,8 +5,9 @@
   import instrumentItalic from "@fontsource-variable/instrument-sans/files/instrument-sans-latin-wght-italic.woff2?url";
   import instrument from "@fontsource-variable/instrument-sans/files/instrument-sans-latin-wght-normal.woff2?url";
 
-  // The faces the first screen sets, fetched with the page so they do not swap in and move it.
-  const FONTS = [instrument, instrumentItalic, geistMono];
+  // The faces the page sets, fetched with it so they do not swap in and move it.
+  // The mono face sets only the ABN, so it is fetched only once there is one.
+  const FONTS = [instrument, instrumentItalic, ...(COMPANY.abn ? [geistMono] : [])];
 
   const TITLE = "Alpine Digital: the company behind Mortar";
   const DESCRIPTION =
@@ -36,7 +37,11 @@
   <meta property="og:site_name" content={COMPANY.name} />
   <meta property="og:title" content={TITLE} />
   <meta property="og:description" content={DESCRIPTION} />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:image" content="{COMPANY.url}/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="The Alpine Digital logo: the company behind Mortar." />
+  <meta name="twitter:card" content="summary_large_image" />
   {#each FONTS as href (href)}
     <link rel="preload" as="font" type="font/woff2" {href} crossorigin="anonymous" />
   {/each}

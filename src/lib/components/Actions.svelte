@@ -2,6 +2,7 @@
 <script lang="ts">
   import { COMPANY, MORTAR } from "#lib/company.ts";
   import Arrow from "./Arrow.svelte";
+  import Email from "./Email.svelte";
 
   let { lg = false }: { lg?: boolean } = $props();
 </script>
@@ -11,6 +12,6 @@
     Book a walkthrough <Arrow out />
   </a>
   <a class="m-btn m-btn-quiet" class:m-btn-lg={lg} href="mailto:{COMPANY.email}">
-    {COMPANY.email}
+    <span><Email /></span>
   </a>
 </div>
