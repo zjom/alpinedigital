@@ -10,7 +10,7 @@
     "dev": "vite dev",
     "build": "vite build",
     "preview": "pnpm build && wrangler dev",
-    "deploy": "pnpm check && pnpm build && wrangler deploy && wrangler deploy -c www/wrangler.jsonc",
+    "deploy": "pnpm check && pnpm build && pnpm wrangler deploy && pnpm wrangler deploy -c www/wrangler.jsonc",
     "prepare": "svelte-kit sync || echo ''",
     "check": "wrangler types && svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "types": "wrangler types"
