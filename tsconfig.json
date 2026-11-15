@@ -1,0 +1,11 @@
+{
+  "extends": "$app/tsconfig",
+  "compilerOptions": {
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    // worker-configuration.d.ts imports the built worker for its type, and
+    // with checkJs the build output would be checked too.
+    "checkJs": false
+  },
+  "include": ["src", "vite.config.ts", "worker-configuration.d.ts"]
+}

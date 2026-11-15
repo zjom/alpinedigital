@@ -1,0 +1,10 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  // A second worker: www.alpinedigital.com.au answers only to send the visitor to alpinedigital.com.au.
+  "name": "alpinedigital-www",
+  "main": "redirect.js",
+  "compatibility_date": "2026-10-01",
+  "routes": [{ "pattern": "www.alpinedigital.com.au", "custom_domain": true }],
+  "workers_dev": false,
+  "preview_urls": false,
+}
