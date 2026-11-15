@@ -17,7 +17,7 @@ const html = `<!doctype html>
     display: flex; flex-direction: column; justify-content: space-between;
     background: #090a0d; color: #eaeff6; font-family: I;
   }
-  svg { width: 264px; height: auto; display: block; }
+  svg { width: 440px; height: auto; display: block; }
   p { margin: 0; font-size: 72px; font-weight: 600; letter-spacing: -0.035em; line-height: 1.02; }
   p span { color: oklch(0.64 0.012 258); }
 </style>

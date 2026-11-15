@@ -12,7 +12,7 @@
     class="wrap grid grid-cols-1 gap-8 py-12 text-small text-ink-2 md:grid-cols-[minmax(0,1fr)_auto]"
   >
     <div class="grid gap-5">
-      <Logo class="h-10 w-auto justify-self-start text-ink" />
+      <Logo class="h-6 w-auto justify-self-start text-ink" />
       <p class="max-w-md text-caption text-ink-3">
         Minfos, FRED and Z are trademarks of their owners. Mortar is an independent product, and is
         not affiliated with or endorsed by any of them.

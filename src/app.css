@@ -3,6 +3,17 @@
 @import "@fontsource-variable/instrument-sans/wght.css";
 @import "@fontsource-variable/instrument-sans/wght-italic.css";
 
+/* The wordmark's A: Instrument Sans's, bold, without its bar (scripts/logo.py
+   makes it). It covers only "A", so every other letter falls through to
+   Instrument Sans. Under 1KB, so the build inlines it. */
+@font-face {
+  font-family: "Alpine Wordmark A";
+  src: url("./lib/fonts/wordmark-a.woff2") format("woff2");
+  font-weight: 700;
+  font-display: block;
+  unicode-range: U+0041;
+}
+
 /* ---------------------------------------------------------------------------
    Alpine Digital — design tokens
 
@@ -122,6 +133,21 @@
   .display em {
     font-style: italic;
     letter-spacing: -0.03em;
+  }
+
+  /* The logo set as real text: the first word bold with the barless A, the
+     second regular, smaller and lowercase, on one baseline. Sizes and tracking
+     follow scripts/logo.py (DIGITAL, TRACK_ALPINE, TRACK_DIGITAL). */
+  .wordmark {
+    font-family: "Alpine Wordmark A", var(--font-sans);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .wordmark-second {
+    font-weight: 400;
+    font-size: 0.82em;
+    letter-spacing: -0.015em;
+    text-transform: lowercase;
   }
 
   /* Data in the mono face: a number, never a sentence. */

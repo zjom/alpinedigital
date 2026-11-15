@@ -9,7 +9,7 @@
 <header class="bar sticky top-0 z-40 border-b border-line bg-night">
   <nav class="wrap flex min-h-16 items-center justify-between gap-4 py-2" aria-label="Main">
     <a href="#top" class="tap shrink-0" aria-label="{COMPANY.name}, top of the page">
-      <Logo class="h-8 w-auto" />
+      <Logo class="h-5 w-auto" />
     </a>
     <div class="flex min-w-0 items-center gap-5 text-small text-ink-2 sm:gap-8">
       <a class="tap hidden hover:text-ink lg:block" href="mailto:{COMPANY.email}"><Email /></a>

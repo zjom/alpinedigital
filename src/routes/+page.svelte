@@ -7,12 +7,16 @@
   import Nav from "#lib/components/Nav.svelte";
 
   const abn = abnLookup();
+  // The h1 sets the name as the logo does: "Alpine" bold, "digital" after it.
+  const [first, ...rest] = COMPANY.name.split(" ");
 </script>
 
 <Nav />
 <main id="main">
   <section class="wrap pt-12 pb-14 sm:pt-20 sm:pb-20">
-    <h1 class="display rise max-w-4xl text-display tracking-[-0.04em]">{COMPANY.name}</h1>
+    <h1 class="display wordmark rise max-w-4xl text-display">
+      {first} <span class="wordmark-second">{rest.join(" ")}</span>
+    </h1>
     <p class="lede rise mt-8 max-w-[38rem]" style="--i:1">{COMPANY.line}</p>
   </section>
 
