@@ -11,7 +11,7 @@
 
   const TITLE = "Alpine Digital: the company behind Mortar";
   const DESCRIPTION =
-    "Alpine Digital is the Australian company behind Mortar, the product that lets a pharmacy group on Minfos see every store as one. It is the only thing we make.";
+    "Alpine Digital is an Australian healthtech company building software that lets healthcare professionals stop fighting their systems. We make Mortar, for pharmacy groups.";
 
   let { children } = $props();
 

@@ -13,8 +13,8 @@ Run commands through `nix develop -c` (or direnv): `pnpm dev`, `pnpm check`,
 src/
   app.css            the tokens (Mortar's page in the dark) and classes: .wrap, .display, .m-num, .lede, .link, .m-btn, .tap, .rise
   lib/company.ts     every fact the site states: COMPANY, MORTAR, FOUNDER, TPN, abnLookup()
-  lib/components/    Logo, Nav, Footer, Actions (the two buttons), Arrow, Email (breaks after the @)
-  routes/+page.svelte   the page: the company's origin down one line, from the pharmacy jobs to the reader's group
+  lib/components/    Logo, Nav, Footer, Arrow, Email (breaks after the @)
+  routes/+page.svelte   the page: why the company exists, what it makes, who is behind it, its data commitments and its details
 www/                 a second worker: www → the bare domain
 ```
 

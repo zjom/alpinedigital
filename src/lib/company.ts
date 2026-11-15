@@ -10,6 +10,8 @@
 export const COMPANY = {
   name: "Alpine Digital",
   legalName: "Alpine Digital Pty Ltd",
+  /** What the company is, in one sentence. */
+  line: "An Australian healthtech company. We make Mortar, software for pharmacy groups.",
   /** "12 345 678 901". Empty until it is filled, and then the page links it to ABN Lookup. */
   abn: "",
   /** "Sydney, NSW". Empty until it is filled. */
@@ -25,9 +27,11 @@ export const MORTAR = {
   data: "https://mortar.cc/#data",
   docs: "https://mortar.cc/docs",
   /** What Mortar is, in one sentence. */
-  line: "Mortar joins a pharmacy group’s Minfos stores, so stock, special orders, clearance, stocktakes and sales read as one group.",
+  line: "Mortar gives a pharmacy group one view of every store: stock, special orders, clearance, stocktakes and sales.",
   /** Who it is for. */
-  audience: "Pharmacy groups with three or more stores on Minfos, in Australia.",
+  audience: "Pharmacy groups in Australia.",
+  /** The dispensary systems Mortar connects to today, and those it is being connected to. */
+  systems: { now: "Minfos", building: "FRED and Z" },
 };
 
 /** The ABN's page on the government's register, or nothing while the ABN is empty. */
@@ -39,15 +43,15 @@ export function abnLookup(): string | undefined {
 export const FOUNDER = {
   name: "Zihan Jin",
   years: "12+ years in pharmacy",
-  /** His own words, as on mortar.cc. */
+  /** Zihan's own words, as on mortar.cc. Not shown on this page. */
   words:
     "I’ve worked every job in a pharmacy except pharmacist: unpacking the delivery, the till, front of shop and the dispensary, then management. Mortar fixes the problems I kept running into.",
   now: "Now I run The Pharmacy Network’s systems, and I’ll take your walkthrough call.",
-  /** His jobs in pharmacy, first to now. */
+  /** Zihan's jobs in pharmacy, first to now. */
   jobs: ["Stock", "Till", "Pharmacy assistant", "Dispensary assistant", "Management", "Systems"],
 };
 
 export const TPN = {
   name: "The Pharmacy Network",
-  line: "A group of three pharmacies. Mortar was built there, and every store uses it each day for special orders, clearance and sales against target.",
+  line: "A pharmacy group. Mortar was built there, and every store uses it each day for special orders, clearance and sales against target.",
 };

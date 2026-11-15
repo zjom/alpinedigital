@@ -1,4 +1,4 @@
-<!-- The page's legal foot: who the company is in law, how to reach it, and the Minfos line. -->
+<!-- The page's legal foot: who the company is in law, how to reach it, and the trademark line. -->
 <script lang="ts">
   import { abnLookup, COMPANY, MORTAR } from "#lib/company.ts";
   import Email from "./Email.svelte";
@@ -14,8 +14,8 @@
     <div class="grid gap-5">
       <Logo class="h-10 w-auto justify-self-start text-ink" />
       <p class="max-w-md text-caption text-ink-3">
-        Minfos is a trademark of its owner. Mortar is an independent product, and is not affiliated
-        with or endorsed by Minfos.
+        Minfos, FRED and Z are trademarks of their owners. Mortar is an independent product, and is
+        not affiliated with or endorsed by any of them.
       </p>
     </div>
     <!-- On touch the rows sit far enough apart that the links' 44px tap areas don't overlap. -->

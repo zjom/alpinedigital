@@ -21,7 +21,10 @@ Australian company stands behind the product.
 
 ## Product Purpose
 
-Alpine Digital is the company behind Mortar, and Mortar is its only product.
+Alpine Digital is an Australian healthtech company. Its mission: modernise
+the software healthcare runs on (faster, clearer, better made, easier to use)
+so healthcare professionals stop fighting their systems and focus on what
+matters to them. Mortar is its only product.
 The site (alpinedigital.com.au) is one page whose whole job is trust: it says
 who the company is, what it makes, who built it and what it commits to, and
 sends the reader back to mortar.cc to book a walkthrough. Success is a reader
@@ -48,7 +51,7 @@ is one a pharmacy owner can check.
   company's city and state. They are empty in `src/lib/company.ts` and do not
   render until filled.
 - Contact is hello@alpinedigital.com.au.
-- Mortar is independent of Minfos, and the site says so.
+- Mortar works with Minfos today; FRED and Z integrations are under way. It is independent of all three, and the site says so.
 - en-AU. The page reads in full without JavaScript.
 
 ## Brand Commitments
@@ -61,7 +64,7 @@ is one a pharmacy owner can check.
 
 ## Evidence on Hand
 
-- The Pharmacy Network, a group of three pharmacies, built Mortar and uses it
+- The Pharmacy Network, a pharmacy group (its store count is not stated), built Mortar and uses it
   in every store each day. It may be named.
 - Zihan Jin built Mortar, has 12+ years in pharmacy, runs TPN's systems and
   takes the walkthrough calls. Named with that role, no photo.

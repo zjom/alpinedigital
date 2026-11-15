@@ -1,157 +1,109 @@
-<!-- The page: how the company came to be, down one line: the jobs behind the counter, the group it was built in, the product, the company, and the reader's group next. Where the browser can tie an animation to scrolling, the line fills as the page is read. -->
+<!-- The page: a reference for the company. Who it is, why it exists, what it makes, who is behind it, how it keeps a group's data, and its details. A row each, label to the left from md up. -->
 <script lang="ts">
-  import { COMPANY, FOUNDER, MORTAR, TPN } from "#lib/company.ts";
-  import Actions from "#lib/components/Actions.svelte";
+  import { abnLookup, COMPANY, FOUNDER, MORTAR, TPN } from "#lib/company.ts";
   import Arrow from "#lib/components/Arrow.svelte";
+  import Email from "#lib/components/Email.svelte";
   import Footer from "#lib/components/Footer.svelte";
   import Nav from "#lib/components/Nav.svelte";
 
-  const earlier = FOUNDER.jobs.slice(0, -1);
+  const abn = abnLookup();
 </script>
 
 <Nav />
 <main id="main">
   <section class="wrap pt-12 pb-14 sm:pt-20 sm:pb-20">
-    <h1 class="display rise max-w-4xl text-display tracking-[-0.04em]">
-      From the stock room to a <em>company.</em>
-    </h1>
-    <p class="lede rise mt-8 max-w-[38rem]" style="--i:1">
-      {COMPANY.name} is the company behind Mortar. It didn’t start as a company. It started with deliveries
-      to unpack.
-    </p>
+    <h1 class="display rise max-w-4xl text-display tracking-[-0.04em]">{COMPANY.name}</h1>
+    <p class="lede rise mt-8 max-w-[38rem]" style="--i:1">{COMPANY.line}</p>
   </section>
 
-  <section class="wrap pb-20 sm:pb-28">
-    <ol class="line">
-      <li>
-        <h2>Every job in a pharmacy but pharmacist</h2>
+  <div class="wrap pb-20 sm:pb-28">
+    <section class="row">
+      <h2>Why we exist</h2>
+      <div>
         <p>
-          Across {FOUNDER.years}, {FOUNDER.name} unpacks the delivery, works the till, the shop floor
-          and the dispensary, then manages, and keeps running into the same problems.
+          Too much of the software in healthcare is slow, cluttered and hard to use, and the people
+          who rely on it spend their day working around it. We build software that is fast, clear
+          and well made, so healthcare professionals can stop fighting their systems and focus on
+          what matters to them.
         </p>
-        <ul class="jobs" aria-label="The jobs, first to last">
-          {#each earlier as job (job)}<li>{job}</li>{/each}
-        </ul>
-      </li>
-      <li>
-        <h2>Three stores, three separate systems</h2>
+      </div>
+    </section>
+
+    <section class="row">
+      <h2>What we make</h2>
+      <div>
         <p>
-          Zihan comes to run the systems at {TPN.name}, a group of three pharmacies. Each store’s
-          Minfos is its own database, so the group can’t see itself as one business.
+          Mortar connects each store’s dispensary system and puts the group’s stock, special orders,
+          clearance, stocktakes and sales in one place. It works with {MORTAR.systems.now} today, and
+          integrations with {MORTAR.systems.building} are under way.
         </p>
-      </li>
-      <li>
-        <h2>Mortar is built inside the group</h2>
+        <a class="more tap" href={MORTAR.url}>mortar.cc <Arrow out /></a>
+      </div>
+    </section>
+
+    <section class="row">
+      <h2>Who is behind it</h2>
+      <div>
         <p>
-          It joins the stores, so stock, special orders, clearance, stocktakes and sales read as one
-          group. Minfos stays the system of record.
+          {FOUNDER.name} founded {COMPANY.name}. Zihan has {FOUNDER.years}, starting out unpacking
+          deliveries and going on to management, and built Mortar while running the systems at
+          {TPN.name}, a pharmacy group whose stores still use it every day.
         </p>
-        <a class="more tap" href={MORTAR.demos}>Try five of its screens <Arrow out /></a>
-      </li>
-      <li>
-        <h2>Every store uses it, every day</h2>
+      </div>
+    </section>
+
+    <section class="row">
+      <h2>Your group’s data</h2>
+      <div>
         <p>
-          {TPN.name} runs special orders, clearance and sales against target on it. About 1,400 automated
-          tests keep it working as it changes.
+          Each group’s data is kept in its own database, on servers in Australia. We export it or
+          delete it when you ask. Special orders hold customers’ health information, and we treat
+          them that way.
         </p>
-      </li>
-      <li class="now">
-        <h2>{COMPANY.name} offers it to other groups</h2>
-        <p>
-          {COMPANY.legalName} is the company behind Mortar, and Mortar is all it makes. Each group gets
-          a database of its own, hosted in Australia, exported or deleted when it asks.
-        </p>
-      </li>
-      <li class="next">
-        <h2>Your group</h2>
-        <p>It starts with a walkthrough: a call with Zihan, on your group’s questions.</p>
-        <div class="mt-6"><Actions lg /></div>
-      </li>
-    </ol>
-  </section>
+        <a class="more tap" href={MORTAR.data}>The details on mortar.cc <Arrow out /></a>
+      </div>
+    </section>
+
+    <section class="row">
+      <h2>Company details</h2>
+      <dl class="details">
+        <dt>Legal name</dt>
+        <dd>{COMPANY.legalName}</dd>
+        {#if abn}
+          <dt>ABN</dt>
+          <dd><a class="link m-num" href={abn}>{COMPANY.abn}</a></dd>
+        {/if}
+        {#if COMPANY.location}
+          <dt>Location</dt>
+          <dd>{COMPANY.location}</dd>
+        {/if}
+        <dt>Email</dt>
+        <dd><a class="link tap" href="mailto:{COMPANY.email}"><Email /></a></dd>
+      </dl>
+    </section>
+  </div>
 </main>
 <Footer />
 
 <style>
-  .line {
-    --gutter: 2.25rem;
-    position: relative;
-    max-width: 46rem;
-    padding-left: var(--gutter);
-    view-timeline: --line block;
+  .row {
+    display: grid;
+    gap: 0.875rem;
+    padding-block: 2.5rem;
+    border-top: 1px solid var(--color-line);
   }
-  /* The rule, and over it the part already read. */
-  .line::before,
-  .line::after {
-    content: "";
-    position: absolute;
-    top: 0.75rem;
-    bottom: 0;
-    left: 0.4375rem;
-    width: 1px;
-    background: var(--color-line-strong);
-  }
-  .line::after {
-    display: none;
-    background: var(--color-ink);
-    transform-origin: top;
-  }
-  .line > li {
-    position: relative;
-    padding-bottom: 3.5rem;
-  }
-  .line > li:last-child {
-    padding-bottom: 0;
-  }
-  /* A ring on the line for each station, a filled dot for where things stand now. */
-  .line > li::before {
-    content: "";
-    position: absolute;
-    z-index: 1;
-    top: 0.5rem;
-    left: calc(var(--gutter) * -1);
-    width: 0.9375rem;
-    height: 0.9375rem;
-    border: 1px solid var(--color-ink-3);
-    border-radius: 999px;
-    background: var(--color-night);
-  }
-  .line > li.now::before {
-    border-color: var(--color-ink);
-    background: var(--color-ink);
-    box-shadow: 0 0 0 5px var(--color-night);
-  }
-  .line > li.next::before {
-    border-style: dashed;
+  .row:last-child {
+    border-bottom: 1px solid var(--color-line);
   }
   h2 {
-    font-size: var(--text-title);
+    font-size: var(--text-lede);
     font-weight: 600;
-    letter-spacing: -0.035em;
-    line-height: 1.05;
-    text-wrap: balance;
-    overflow-wrap: break-word;
+    letter-spacing: -0.01em;
   }
-  .line > li > p {
-    max-width: 36rem;
-    margin-top: 0.875rem;
+  p {
+    max-width: 38rem;
     color: var(--color-ink-2);
     font-size: var(--text-lede);
-  }
-  .jobs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1.25rem;
-  }
-  .jobs li {
-    max-width: 100%;
-    overflow-wrap: anywhere;
-    padding: 0.25rem 0.75rem;
-    border-radius: 999px;
-    box-shadow: inset 0 0 0 1px var(--color-line-strong);
-    color: var(--color-ink-2);
-    font-size: var(--text-caption);
   }
   .more {
     display: inline-flex;
@@ -167,27 +119,23 @@
   .more:hover :global(.arrow) {
     transform: translate(2px, -2px);
   }
-  @media (min-width: 768px) {
-    .line {
-      --gutter: 4rem;
-    }
-    .line > li {
-      padding-bottom: 5rem;
-    }
+  .details {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.625rem 2rem;
+    font-size: var(--text-lede);
   }
-  @supports (animation-timeline: view()) {
-    @media (prefers-reduced-motion: no-preference) {
-      .line::after {
-        display: block;
-        animation: read linear both;
-        animation-timeline: --line;
-        animation-range: entry 60% exit 40%;
-      }
-      @keyframes read {
-        from {
-          transform: scaleY(0);
-        }
-      }
+  .details dt {
+    color: var(--color-ink-3);
+  }
+  .details dd {
+    overflow-wrap: anywhere;
+  }
+  @media (min-width: 768px) {
+    .row {
+      grid-template-columns: 16rem minmax(0, 1fr);
+      gap: 2rem;
+      padding-block: 3rem;
     }
   }
 </style>
