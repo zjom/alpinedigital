@@ -47,9 +47,8 @@ is one a pharmacy owner can check.
 
 - No pricing, launch dates, customers, logos, testimonials, certifications or
   figures that mortar-site does not state.
-- The legal name is Alpine Digital Pty Ltd. **Undecided:** the ABN and the
-  company's city and state. They are empty in `src/lib/company.ts` and do not
-  render until filled.
+- The legal name is Alpine Digital Services Pty Ltd, ABN 70 704 230 642,
+  based in Melbourne, VIC.
 - Contact is hello@alpinedigital.com.au.
 - Mortar works with Minfos today; FRED and Z integrations are under way. It is independent of all three, and the site says so.
 - en-AU. The page reads in full without JavaScript.

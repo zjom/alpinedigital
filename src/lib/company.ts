@@ -9,13 +9,13 @@
 
 export const COMPANY = {
   name: "Alpine Digital",
-  legalName: "Alpine Digital Pty Ltd",
+  legalName: "Alpine Digital Services Pty Ltd",
   /** What the company is, in one sentence. */
   line: "An Australian healthtech company. We make Mortar, software for pharmacy groups.",
   /** "12 345 678 901". Empty until it is filled, and then the page links it to ABN Lookup. */
-  abn: "",
+  abn: "70 704 230 642",
   /** "Sydney, NSW". Empty until it is filled. */
-  location: "",
+  location: "Melbourne, VIC",
   email: "hello@alpinedigital.com.au",
   url: "https://alpinedigital.com.au",
 };
