@@ -25,11 +25,15 @@
       <a class="tap hover:text-ink" href={MORTAR.walkthrough}>Book a walkthrough</a>
       <a class="tap hover:text-ink" href="mailto:{COMPANY.email}"><Email /></a>
     </div>
-    <p class="text-caption text-ink-3 md:col-span-2">
-      © {COMPANY.legalName}{#if abn}, <a class="link" href={abn}
-          >ABN <span class="m-num">{COMPANY.abn}</span></a
-        >{/if}{#if COMPANY.location}, {COMPANY.location}{/if}. Made in Australia for Australian
-      pharmacy groups.
-    </p>
+    <div class="text-caption text-ink-3 md:col-span-2">
+      <p>© {COMPANY.legalName}</p>
+      {#if abn}
+        <p><a class="link" href={abn}>ABN <span class="m-num">{COMPANY.abn}</span></a></p>
+      {/if}
+      {#if COMPANY.location}
+        <p>{COMPANY.location}</p>
+      {/if}
+      <p>Made in Australia for Australia.</p>
+    </div>
   </div>
 </footer>
